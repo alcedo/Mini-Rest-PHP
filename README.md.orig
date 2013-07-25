@@ -1,10 +1,10 @@
 Mini-Rest-PHP
 =============
 
-<<<<<<< HEAD
 Mini Restful PHP Listener. Useful for servers without mod_rewrite, and with very specific constraints, (mainly for my own use :P)
 
-Test
+<<<<<<< HEAD
+Communications are done solely via JSON
 =======
-Mini Restful PHP Listener. Useful for servers without mod_rewrite, and with very specific constraints, (mainly for my own use:P)
->>>>>>> Update README.md
+Test
+>>>>>>> 4101b1e597c117446ea8df4181d9e0440ed4be12
