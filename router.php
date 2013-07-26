@@ -283,6 +283,26 @@ class Gateway
 			);
 
 	}
+	
+	 /**
+	 *  This method extracts the param data sent by a client, and 
+	 *  converts it into a hashmap. 
+	 *
+	 *	Example conversion:
+	 *  array ([0] => days=1, [1] => type=fruit ) into
+	 *  array ([days] => 1, [type] => fruit)
+	 * 
+	 * @param $param_array are param data set coming from the client.
+	 */
+	protected function parseParam($param_array)
+	{
+		$parsedArray = array();
+		foreach ($param_array as $key => $value) { // extract the value
+			list($newKey, $newValue) = explode('=', $value);
+			$parsedArray[$newKey] = $newValue;
+		}
+		return $parsedArray;
+	}
 
 	// ==================================================================
 	//
