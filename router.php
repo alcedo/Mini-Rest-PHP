@@ -246,13 +246,17 @@ class Gateway
 		if($this->request_method == 'GET') {  
 			$invoke_list[Gateway::CLASS_KEY]  = $_GET[Gateway::CLASS_KEY];
 			$invoke_list[Gateway::METHOD_KEY] = $_GET[Gateway::METHOD_KEY];
-			$invoke_list[Gateway::PARAM_KEY]  = explode(',' , $_GET[Gateway::PARAM_KEY]); //params are comma seperated 
+
+			//Start Parsing Params. GET params are specified in a comma seperated fashion
+			$comma_seperated_params = explode(',' , $_GET[Gateway::PARAM_KEY]); 
+			$parsed_params = $this->parseParam ($comma_seperated_params);
+			$invoke_list[Gateway::PARAM_KEY]  = $parsed_params;
 			return $invoke_list; 
 		}
 
 		// if POST request, data returned in JSON string format 
 		if($this->request_method == 'POST') { 
-			$post_data = json_decode( $this->request_data , true);
+			$post_data = json_decode( $this->request_data , true); //json_decode handles all the parsing :)
 			$invoke_list[Gateway::CLASS_KEY]  = $post_data[Gateway::CLASS_KEY];
 			$invoke_list[Gateway::METHOD_KEY] = $post_data[Gateway::METHOD_KEY];
 			$invoke_list[Gateway::PARAM_KEY]  = $post_data[Gateway::PARAM_KEY];
