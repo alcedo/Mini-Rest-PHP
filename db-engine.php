@@ -4,13 +4,6 @@
 // For testing purposes !
 class TestEcho 
 {
-  public function getBondTypes($msg="no msg")
-	{
-		// header("Cache-Control: no-cache, must-revalidate");
-		// header("Expires: 0");
-
-		echo "<br /> test: " . $msg;
-	}
 
 	public function dumbEchoNoParams() 
 	{
